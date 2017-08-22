@@ -48,19 +48,14 @@ namespace DotNetSample_64
 
         public void Timer1_Tick(object sender, EventArgs e)
         {
-
             label2.Text = DateTime.Now.ToString();
-
             List<string> strdata = new List<string>();
-
 
             switch (comboBox1.SelectedIndex)
             {
                 case 0:
-
                     pm100d.measEnergy(out energyvalue);
                     labelEnergy.Text = energyvalue.ToString();
-
                     break;
 
                 case 1:
@@ -115,24 +110,17 @@ namespace DotNetSample_64
 
         public void button1_Click(object sender, EventArgs e)
         {
-            
-            try
+            pm100d = new Thorlabs.PM100D.PM100D("USB0::0x1313::0x8075::P5000256::INSTR", false, false);  //  For valid Ressource_Name see NI-Visa documentation.
+
+            if (btnLog.Text == "STOP LOGGING")
             {
-                pm100d = new Thorlabs.PM100D.PM100D("USB0::0x1313::0x8075::P5000256::INSTR", false, false);  //  For valid Ressource_Name see NI-Visa documentation.
-                if (button1.Text == "STOP LOGGING")
-                {
-                    button1.Text = "START LOGGING";
-                    timer1.Enabled = false;
-                }
-                else
-                {
-                    button1.Text = "STOP LOGGING";
-                    timer1.Enabled = true;
-                }
+                btnLog.Text = "START LOGGING";
+                timer1.Enabled = false;
             }
-            catch(ExternalException exz)
+            else
             {
-                textBox2.Text = exz.Message;
+                btnLog.Text = "STOP LOGGING";
+                timer1.Enabled = true;
             }
         }
 
@@ -160,6 +148,10 @@ namespace DotNetSample_64
 
         }
 
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 

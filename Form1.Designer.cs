@@ -32,7 +32,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.labelPower = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnLog = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.labelEnergy = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
@@ -74,15 +74,15 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "Time";
             // 
-            // button1
+            // btnLog
             // 
-            this.button1.Location = new System.Drawing.Point(14, 13);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 35);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "START LOGGING";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnLog.Location = new System.Drawing.Point(14, 13);
+            this.btnLog.Name = "btnLog";
+            this.btnLog.Size = new System.Drawing.Size(75, 35);
+            this.btnLog.TabIndex = 5;
+            this.btnLog.Text = "START LOGGING";
+            this.btnLog.UseVisualStyleBackColor = true;
+            this.btnLog.Click += new System.EventHandler(this.button1_Click);
             // 
             // timer1
             // 
@@ -215,12 +215,13 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.labelEnergy);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnLog);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.labelPower);
             this.Controls.Add(this.label1);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -231,7 +232,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label labelPower;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnLog;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label labelEnergy;
         private System.Windows.Forms.ComboBox comboBox1;
